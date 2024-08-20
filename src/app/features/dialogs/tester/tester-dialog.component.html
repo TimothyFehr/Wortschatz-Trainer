@@ -1,0 +1,21 @@
+<h2 mat-dialog-title>Vokabeln Kentnisse prüfen</h2>
+<mat-dialog-content>
+  <p>Was ist das Wort-Paar?</p>
+  <mat-form-field *ngIf="randomField !== 1"  class="error">
+    <input class="error" matInput [(ngModel)]="data.testWordPair.wordPair.text1" disabled="{{randomField === 2}}">
+  </mat-form-field>
+  <mat-form-field *ngIf="randomField === 1">
+    <input matInput [(ngModel)]="data.testWordPair.guess">
+  </mat-form-field>
+  <mat-form-field *ngIf="randomField !== 2" class="error">
+    <input class="error" matInput [(ngModel)]="data.testWordPair.wordPair.text2" disabled="{{randomField === 1}}">
+  </mat-form-field>
+  <mat-form-field *ngIf="randomField === 2">
+    <input matInput [(ngModel)]="data.testWordPair.guess">
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>beenden</button>
+  <button mat-button [mat-dialog-close]="data.testWordPair" cdkFocusInitial>Nexte Vokabel</button>
+</mat-dialog-actions>
+

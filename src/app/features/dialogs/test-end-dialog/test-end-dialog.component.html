@@ -1,0 +1,21 @@
+<h2 mat-dialog-title>Dein Test ist abgeschlossen</h2>
+<mat-dialog-content class="mat-typography">
+  <p>du hast follgende Punkte erreicht:</p>
+  <div class="duration">
+    <mat-form-field>
+      <mat-label>Dauer (Minuten)</mat-label>
+      <input type="number" matInput placeholder="5" value="5" [(ngModel)]="data.durationMin" name="duration">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Trefferquote (%)</mat-label>
+      <input type="number" matInput placeholder="50" value="80" step="5"[(ngModel)]="data.hitRatio" name="hits">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Fanzahl Wörter</mat-label>
+      <input type="number" matInput placeholder="20" value="20" step="5" [(ngModel)]="data.total" name="numpairs">
+    </mat-form-field>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Bestätigen</button>
+</mat-dialog-actions>

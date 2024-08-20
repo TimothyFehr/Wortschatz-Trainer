@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>Vokabel Erfassen</h1>
+<mat-dialog-content mat-dialog-content>
+  <p>Was ist das Wort-Paar?</p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.wordPair.text1">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.wordPair.text2">
+  </mat-form-field>
+</mat-dialog-content>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data.wordPair" cdkFocusInitial>Ok</button>
+</div>

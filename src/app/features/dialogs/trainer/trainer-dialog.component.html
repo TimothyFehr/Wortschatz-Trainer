@@ -1,0 +1,25 @@
+<h2 mat-dialog-title>Vokabeln üben</h2>
+<mat-dialog-content>
+  <p>Korrekt: {{data.correct}} / {{data.total}}</p>
+  <p>Was ist das Wort-Paar?</p>
+  <mat-form-field *ngIf="randomField !== 1 ">
+    <input matInput [(ngModel)]="data.testWordPair.wordPair.text1" disabled="{{randomField === 2}}">
+  </mat-form-field>
+  <mat-form-field *ngIf="randomField === 1 && (!checked || data.testWordPair.wordPair.text1 == data.testWordPair.guess)">
+    <input matInput [(ngModel)]="data.testWordPair.guess">
+  </mat-form-field>
+  <p class="correct" *ngIf="randomField === 1 && checked && data.testWordPair.wordPair.text1 != data.testWordPair.guess">{{data.testWordPair.wordPair.text1}}</p>
+  <mat-form-field *ngIf="randomField !== 2">
+    <input matInput [(ngModel)]="data.testWordPair.wordPair.text2" disabled="{{randomField === 1}}">
+  </mat-form-field>
+  <mat-form-field *ngIf="randomField === 2 && (!checked || data.testWordPair.wordPair.text2 == data.testWordPair.guess)">
+    <input matInput [(ngModel)]="data.testWordPair.guess">
+  </mat-form-field>
+  <p class="correct" *ngIf="randomField === 2 && checked && data.testWordPair.wordPair.text2 != data.testWordPair.guess">{{data.testWordPair.wordPair.text2}}</p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>beenden</button>
+  <button mat-button *ngIf="!checked" (click)="onClick()" cdkFocusInitial>Prüfen</button>
+  <button mat-button *ngIf="checked" [mat-dialog-close]="data.testWordPair" cdkFocusInitial>Nexte Vokabel</button>
+</mat-dialog-actions>
+

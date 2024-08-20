@@ -1,0 +1,19 @@
+.mat-sort-header-container {
+  align-items: center;
+}
+.mat-mdc-tab.mdc-tab {
+  padding: 15px;
+}
+
+tr.mat-mdc-header-row.mdc-data-table__header-row.cdk-header-row {
+  background-color: #d9d9d9;
+}
+
+th.mat-mdc-header-cell.mdc-data-table__header-cell.cdk-header-cell.cdk-column-actions.mat-column-actions {
+  width: 105px;
+}
+
+td.mat-mdc-cell.mdc-data-table__cell.cdk-cell.cdk-column-actions.mat-column-actions button {
+  background-color: transparent;
+  border: none;
+}

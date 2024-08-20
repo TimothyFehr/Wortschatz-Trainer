@@ -1,0 +1,54 @@
+<mat-tab-group>
+  <mat-tab label="Erfassen">
+    <p>Hier findest du alle deine Vokaben aufgelistest, du kannst die verwalten und neue erfassen.</p>
+    <div class="button-row">
+      <button mat-raised-button matTooltip="Alle Einträge löschen und Demo-Daten importieren" (click)="importOrOpenDialog()">
+        <mat-icon>input</mat-icon>
+        Demo importieren
+      </button>
+      <button mat-raised-button color="primary" matTooltip="Neue Voakbel anlegen" (click)="openCreateDialog()">
+        <mat-icon>add</mat-icon>
+        Vokabel hinzufügen
+      </button>
+      <button mat-raised-button color="warn" class="delete" matTooltip="Alle Einträge löschen" (click)="openDeleteDialog()">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+    <app-wordlist-table></app-wordlist-table>
+  </mat-tab>
+  <mat-tab label="Trainieren">
+    <div class="big-center-button">
+      <button mat-raised-button color="primary" (click)="openTrainingDialog()">
+        Training Starten
+      </button>
+    </div>
+  </mat-tab>
+  <mat-tab label="Prüfen">
+    <form name="TestSettingForm">
+      <div class="duration">
+        <mat-form-field>
+          <mat-label>Dauer (Minuten)</mat-label>
+          <input type="number" matInput placeholder="5" value="5" [(ngModel)]="duration" name="duration">
+        </mat-form-field>
+      </div>
+      <div class="hits">
+        <mat-form-field>
+          <mat-label>Trefferquote (%)</mat-label>
+          <input type="number" matInput placeholder="50" value="80" step="5"[(ngModel)]="hits" name="hits">
+        </mat-form-field>
+      </div>
+      <div class="number">
+        <mat-form-field>
+          <mat-label>Fanzahl Wörter</mat-label>
+          <input type="number" matInput placeholder="20" value="20" step="5" [(ngModel)]="numpairs" name="numpairs">
+        </mat-form-field>
+      </div>
+
+      <div class="big-center-button">
+        <button mat-raised-button color="primary" (click)="openTestDialog()">
+          Test Starten
+        </button>
+      </div>
+    </form>
+  </mat-tab>
+</mat-tab-group>
